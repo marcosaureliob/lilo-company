@@ -5,10 +5,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { PasswordModule } from 'primeng/password';
 import { CardModule } from 'primeng/card';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-   imports: [
+  standalone: true,
+  imports: [
     CommonModule,
     ReactiveFormsModule,
     ButtonModule,
@@ -16,14 +18,13 @@ import { CardModule } from 'primeng/card';
     PasswordModule,
     CardModule
   ],
-  standalone: true,
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrls: ['./login.css']
 })
 export class Login {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -34,14 +35,15 @@ export class Login {
     if (this.form.valid) {
       const { email, password } = this.form.value;
       console.log('Login enviado:', email, password);
+      this.router.navigate(['/home']); 
     }
   }
 
   forgotPassword() {
-    console.log('Redirecionar para recuperação de senha...');
+    this.router.navigate(['/password-recovery']);
   }
 
   register() {
-    console.log('Redirecionar para tela de cadastro...');
+    this.router.navigate(['/register']);
   }
 }
