@@ -1,28 +1,25 @@
-<div class="flex justify-center w-full items-center h-screen p-6 bg-gray-100">
-  <div class="h-[350px] flex">
-    <div class="w-[450px] h-full bg-no-repeat contain-content " style="background-image: url('assets/bg.png')">
-    </div>
-    <p-card header="Acesso ao Império" class="w-full max-w-md h-full">
-      <form [formGroup]="form" (ngSubmit)="login()" class="flex flex-col gap-4">
+<div class="flex justify-center  w-full items-center h-screen  bg-green-100">
 
-        <div>
-          <label for="email">Email</label>
-          <input id="email" type="email" pInputText formControlName="email" class="w-full" />
-        </div>
+  <p-card header="Acesse a plataforma de emprego" class="w-full max-w-md h-fit rounded-l-lg rounded-r-none overflow-hidden">
+    <form [formGroup]="form" (ngSubmit)="login()" class="flex flex-col gap-4">
 
-        <div>
-          <label for="password">Senha</label>
-          <input id="password" type="password" pPassword formControlName="password" [feedback]="false" class="w-full" />
-        </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" pInputText formControlName="email" class="w-full" />
+      </div>
 
-        <p-button label="Entrar" icon="pi pi-sign-in" styleClass="w-full" type="button"></p-button>
+      <div>
+        <label for="password">Senha</label>
+        <input id="password" type="password" pPassword formControlName="password" [feedback]="false" class="w-full" />
+      </div>
 
-        <div class="flex justify-between text-sm mt-2">
-          <a class="cursor-pointer text-primary" (click)="forgotPassword()">Esqueci a senha</a>
-          <a class="cursor-pointer text-primary" (click)="register()">Não tenho conta</a>
-        </div>
+      <p-button label="Entrar" icon="pi pi-sign-in" styleClass="w-full" type="button" (click)="login()"></p-button>
 
-      </form>
-    </p-card>
-  </div>
+      <div class="flex justify-between text-sm mt-2">
+        <a class="cursor-pointer text-primary" (click)="forgotPassword()">Esqueci a senha</a>
+        <a class="cursor-pointer text-primary" (click)="register()">Não tenho conta</a>
+      </div>
+
+    </form>
+  </p-card>
 </div>
