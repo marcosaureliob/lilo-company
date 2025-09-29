@@ -1,40 +1,25 @@
-<div class="h-screen w-full bg-cover bg-center bg-no-repeat" style="background-image: url('assets/login-banner.png')">
-  <div class="p-10 h-full flex  justify-between">
-    <div>
-      <p class="text-white text-xl font-semibold bg-[#A5D9D0] rounded-md p-2 ml-15">Lilo Company</p>
-    </div>
+<div class="flex justify-center  w-full items-center h-screen  bg-green-100">
 
-    <div class="flex h-full items-center 2xl:mr-[100px]">
-      <div
-        class="border border-gray-200 rounded-lg py-5 px-7 bg-[#374a50] bg-gradient-to-l from-[#374a50] to-[#263238] shadow-lg w-[400px]">
-        <div class="flex flex-col gap-2 mb-10">
-          <p class="text-white text-2xl font-semibold text-start">Login</p>
-          <p class="text-white text-lg font-normal">Welcome onboard with us!</p>
-        </div>
+  <p-card header="Acesso ao Império" class="w-full max-w-md h-fit rounded-l-lg rounded-r-none overflow-hidden">
+    <form [formGroup]="form" (ngSubmit)="login()" class="flex flex-col gap-4">
 
-        <form class="flex flex-col  mt-4">
-          <div class="flex flex-col gap-1 mb-4">
-            <label class="text-white text-sm font-medium">Username</label>
-            <input type="text" placeholder="Username"
-              class="text-white text-sm border border-gray-50 rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-[#A5D9D0]">
-          </div>
-
-          <div class="flex flex-col gap-1 mb-2">
-            <label class="text-white text-md font-medium">Password</label>
-            <input type="password" placeholder="Password"
-              class="text-white text-sm border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-[#A5D9D0]">
-          </div>
-
-          <p class="text-sm text-white font-normal text-end mb-7 cursor-pointer">Forgot password?</p>
-
-          <button type="button"
-            class="bg-[#A5D9D0] cursor-pointer text-black font-semibold rounded-md p-2 hover:bg-[#7fbfb4] transition duration-300 mb-2" (click)="login()">Login</button>
-
-          <p class="text-sm text-white font-normal text-center">You don't have an account?<a href="#"
-              class="text-[#A5D9D0]">Sign up</a></p>
-        </form>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" pInputText formControlName="email" class="w-full" />
       </div>
-    </div>
 
-  </div>
+      <div>
+        <label for="password">Senha</label>
+        <input id="password" type="password" pPassword formControlName="password" [feedback]="false" class="w-full" />
+      </div>
+
+      <p-button label="Entrar" icon="pi pi-sign-in" styleClass="w-full" type="button" (click)="login()"></p-button>
+
+      <div class="flex justify-between text-sm mt-2">
+        <a class="cursor-pointer text-primary" (click)="forgotPassword()">Esqueci a senha</a>
+        <a class="cursor-pointer text-primary" (click)="register()">Não tenho conta</a>
+      </div>
+
+    </form>
+  </p-card>
 </div>
